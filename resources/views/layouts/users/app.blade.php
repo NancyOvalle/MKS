@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -14,66 +13,39 @@
 
     <link rel="stylesheet" href="{{ url('bootstrap-4.5/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url('https://use.fontawesome.com/releases/v5.0.6/css/all.css') }}">
-    
+
 
 </head>
 
 <body data-sidebar="dark">
 
-<!-- Begin page -->
-<div id="layout-wrapper">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
 
-@include('layouts.users.components.navbar')
-
-@include('layouts.users.components.sidebar')
-
-<!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="main-content">
-
-        <div class="page-content">
-            <div class="container-fluid">
+        @include('layouts.users.components.navbar')
 
 
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
 
-                @yield('content')
-
-
-            </div> <!-- container-fluid -->
-        </div>
+        <main class="py-4" style="padding-bottom: 4rem !important;">
+            @yield('content')
+        </main>
         <!-- End Page-content -->
 
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <script>document.write(new Date()())</script>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-right d-none d-sm-block">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <footer class="footer col-12" style="position: fixed;bottom: 0;padding: 0;">
+            @include('layouts.users.components.aside')
         </footer>
+
     </div>
-    <!-- end main content-->
 
-</div>
-<!-- END layout-wrapper -->
 
-@include('layouts.users.components.aside')
-
-<!-- Right bar overlay-->
-<div class="rightbar-overlay"></div>
-
-<script src="{{ url('js/app.js') }}"></script>
-<script src="{{ url('bootstrap-4.5/js/bootstrap.js') }}"></script>
-<script src="{{ url('https://code.jquery.com/jquery-3.5.1.slim.min.js')}}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="{{ url('bootstrap-4.5/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ url('js/app.js') }}"></script>
+    <script src="{{ url('bootstrap-4.5/js/bootstrap.js') }}"></script>
+    <script src="{{ url('https://code.jquery.com/jquery-3.5.1.slim.min.js')}}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="{{ url('bootstrap-4.5/js/bootstrap.bundle.js') }}"></script>
 
 </body>
+
 </html>
