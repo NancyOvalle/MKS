@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Bienvenido') }}
+                    {{ __('Usted es menor de 14 años, no puede ingresar.') }}
                 </div>
             </div>
         </div>

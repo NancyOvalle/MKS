@@ -4,6 +4,7 @@
 
 @php
 use App\Models\Gender;
+
 $genders=Gender::all();
 
 use App\Models\Document_Type;
