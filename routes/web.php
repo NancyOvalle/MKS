@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductsController::class, 'create'])->name('products.create');
 Route::post('/products',[ProductsController::class, 'store'])->name('products.store');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware("CheckAge");
+Route::get('/home2', function () {return view('home2');})->name('home2');

@@ -38,5 +38,10 @@
 	                   <br>
 					</div>
 
+                    {{ __('Bienvenido') }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection 
