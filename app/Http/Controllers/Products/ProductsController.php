@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class ProductsController extends Controller
@@ -65,8 +66,11 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        Product::find($id);
+
+        return view('layouts.products.show');
+        
     }
 
     /**
@@ -100,6 +104,7 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::find($id)->delete();
+        return view('home');
     }
 }
