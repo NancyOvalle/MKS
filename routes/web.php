@@ -20,7 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/products',[ProductsController::class, 'index'])->name('products.index');
 Route::get('/products', [ProductsController::class, 'create'])->name('products.create');
 Route::post('/products',[ProductsController::class, 'store'])->name('products.store');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware("CheckAge");
 Route::get('/home2', function () {return view('home2');})->name('home2');

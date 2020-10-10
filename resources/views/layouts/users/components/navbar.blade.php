@@ -6,21 +6,21 @@
     <div class="col-10" style="display: flex !important; justify-content: center;">
       <ul class="navbar-nav mr-center">
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/') }}">INICIO <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ route('home') }}">{{ __('INICIO') }} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             COLECCION
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">HOMBRE</a>
-            <a class="dropdown-item" href="#">MUJER</a>
+            <a class="dropdown-item" href="">{{ __('HOMBRE') }}</a>
+            <a class="dropdown-item" href="#">{{ __('MUJER') }}</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">NIÑOS</a>
+            <a class="dropdown-item" href="#">{{ __('NIÑOS') }}</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">CONTACTO</a>
+          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">{{ __('CONTACTO') }}</a>
         </li>
       </ul>
     </div>

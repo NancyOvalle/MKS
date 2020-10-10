@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class ProductsController extends Controller
 {
@@ -17,6 +18,7 @@ class ProductsController extends Controller
     {
         //
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -25,13 +27,8 @@ class ProductsController extends Controller
      */
     public function create(Request $request)
     {
-        $product=Product::create([
-            'product_name'=>$request->input('product_name'),
-            'description'=>$request->input('description'),
-            'price'=>$request->input('price'),
-            'image50'=>$request->input('image50'),
-            
-        ]);
+        return view('layouts.products.create');
+ 
     }
 
     /**
@@ -42,11 +39,22 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-       
+        
+        //$products=request()->all();
 
-        $product=new Product();
-        $product->fill($request->all());
-        $product->image50=$request->file('image50')->store('imagenes');
+        $products=request()->except('_token');
+
+        if($request->hasfile('image')){
+            
+            $products['image']=$request->file('image')->store('imagenes','public');
+        }
+
+        Product::insert($products);
+
+        return view('home');
+        
+        
+ 
         
     }
 
