@@ -1,23 +1,26 @@
 @extends('layouts.users.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@php
+use App\Models\Product;
+$products=Product::all();
+@endphp
+<div class="container marketing">
+    <div class="row">
 
-                    {{ __('Bienvenido') }}
-                </div>
-            </div>
-        </div>
+    @foreach($products as $product)
+      <div class="col-lg-4">
+        <img src="{{ asset('storage').'/'.$product->image}}" width="250"  height="250" style="border-radius: 100%;">
+        <h2>{{$product->product_name}}</h2>
+        <h3>$ {{$product->price}}</h3>    
+        <p class="btn btn-info">Ver Detalles</p>
+        <p class="btn btn-danger">Eliminar</p>    
+      </div>
+
+     @endforeach
     </div>
 </div>
-@endsection
+
+
+@endsection 
