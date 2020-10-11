@@ -22,7 +22,6 @@ $products=Product::all();
         @method('DELETE')   
         <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">{{ __('Ver Detalles') }}</a>
         <button class="btn btn-danger">{{ __('Eliminar') }}</button>
-        
         </form>
       </div>
 
