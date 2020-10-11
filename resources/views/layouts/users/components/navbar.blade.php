@@ -13,10 +13,10 @@
             COLECCION
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="">{{ __('HOMBRE') }}</a>
-            <a class="dropdown-item" href="#">{{ __('MUJER') }}</a>
+            <a class="dropdown-item" href="{{ route('users.index') }}">{{ __('HOMBRE') }}</a>
+            <a class="dropdown-item" href="{{ route('users.mujer') }}">{{ __('MUJER') }}</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">{{ __('NIÑOS') }}</a>
+            <a class="dropdown-item" href="{{ route('users.niños') }}">{{ __('NIÑOS') }}</a>
           </div>
         </li>
         <li class="nav-item">
@@ -54,6 +54,7 @@
                                                      document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                 </a>
+                <a class="nav-link"href="{{ route('products.create') }}">{{ __('Crear Producto') }}</a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf

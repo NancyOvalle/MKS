@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckRol
 {
@@ -15,7 +16,14 @@ class CheckRol
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
+  /*php  public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (Auth::user()->roles = ('Administrador')){
+            return redirect()->route('products.create');
+        }
+        else {
+            return redirect()->route('home');
+        }
+
     }
 }

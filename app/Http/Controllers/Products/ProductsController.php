@@ -81,7 +81,10 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        Product::find($id);
+
+      
+        
     }
 
     /**
@@ -106,5 +109,46 @@ class ProductsController extends Controller
     {
         Product::find($id)->delete();
         return view('home');
+    }
+
+    public function cart()
+    {
+        
+        return view('layouts.products.cart');
+    }
+    
+    public function addtocart($id)
+    {
+        $product=Product::find($id);
+        $cart= session()->get('products.cart');
+
+        if(!$cart){
+            $cart=[
+                $id=>[
+                    "name"=>$product->product_name,
+                    "quantity"=>1,
+                    "price"=>$product->price,
+                    "image"=>$product->image
+                ]
+                ];
+                session()->put('products.cart', $cart);
+                return redirect()->back()->with('succes', 'Producto añadido correctamente');
+        }
+        if(isset($cart[$id])){
+            $cart [$id]['quantity']++;
+            session()->put('products.cart',$cart);
+            return redirect()->back()->with('succes', 'Producto añadido correctamente');
+
+        }
+        $cart[$id]=[
+            "name"=>$product->product_name,
+            "quantity"=>1,
+            "price"=>$product->price,
+            "image"=>$product->image
+        ];
+        session()->put('products.cart',$cart);
+        return redirect()->back()->with('succes', 'Producto añadido correctamente');
+
+
     }
 }
